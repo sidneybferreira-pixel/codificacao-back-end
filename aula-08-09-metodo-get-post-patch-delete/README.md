@@ -12,29 +12,29 @@ Nesta atividade, foram trabalhados os principais métodos HTTP utilizados no des
 
 Praticar a criação de uma API utilizando **NestJS**, compreendendo como realizar operações de:
 
-* 🔎 **Consulta** de dados
-* ➕ **Cadastro** de dados
-* ✏️ **Atualização** de dados
-* 🗑️ **Exclusão** de dados
+- 🔎 **Consulta** de dados
+- ➕ **Cadastro** de dados
+- ✏️ **Atualização** de dados
+- 🗑️ **Exclusão** de dados
 
 ---
 
 ## ⚙️ Métodos HTTP utilizados
 
-|   Método   | Função                              |
-| :--------: | ----------------------------------- |
-|   **GET**  | Consultar os convidados cadastrados |
-|  **POST**  | Cadastrar um novo convidado         |
-|  **PATCH** | Atualizar os dados de um convidado  |
-| **DELETE** | Remover um convidado                |
+| Método | Função |
+|:------:|--------|
+| **GET** | Consultar os convidados cadastrados |
+| **POST** | Cadastrar um novo convidado |
+| **PATCH** | Atualizar os dados de um convidado |
+| **DELETE** | Remover um convidado |
 
 ---
 
 ## 🛠️ Tecnologias utilizadas
 
-* **Node.js**
-* **NestJS**
-* **TypeScript**
+- **Node.js**
+- **NestJS**
+- **TypeScript**
 
 ---
 
@@ -58,7 +58,7 @@ A aplicação permite realizar operações sobre os convidados cadastrados por m
 
 Com esta atividade, foi possível compreender melhor o funcionamento das **requisições HTTP**, a criação de **rotas** e a implementação de operações de **CRUD** utilizando o **NestJS**.
 
-A prática também contribuiu para o entendimento da estrutura e do funcionamento de uma **API REST**.
+Também foi possível praticar o uso dos métodos **GET, POST, PATCH e DELETE** no desenvolvimento de uma **API REST**, entendendo como cada método é utilizado para consultar, cadastrar, atualizar e excluir dados.
 
 ---
 
