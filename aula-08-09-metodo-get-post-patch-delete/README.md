@@ -1,32 +1,28 @@
-# Aula 08-09 - Métodos GET, POST, PATCH e DELETE
+# Aula 08-09 — Métodos HTTP
 
-## Tecnologias
-- Node.js
-- NestJS
-- TypeScript
+## 📚 Sobre a aula
 
-## Conteúdo
-Nesta aula foram desenvolvidos endpoints utilizando os principais métodos HTTP:
+Nesta aula foi desenvolvido um projeto utilizando **NestJS**, com o objetivo de praticar os principais métodos HTTP utilizados no desenvolvimento de APIs.
 
-- GET
-- POST
-- PATCH
-- DELETE
+## 🛠️ Tecnologias utilizadas
 
-## Rotas
+- **Node.js**
+- **NestJS**
+- **TypeScript**
 
-### GET
-`GET /convidados`
+## 🚀 O que foi desenvolvido
 
-### POST
-`POST /convidados`
+Durante a aula foram implementadas operações para gerenciamento de convidados utilizando os seguintes métodos:
 
-### PATCH
-`PATCH /convidados/:id`
+- **GET** — consultar convidados
+- **POST** — cadastrar novos convidados
+- **PATCH** — atualizar dados de convidados
+- **DELETE** — remover convidados
 
-### DELETE
-`DELETE /convidados/:id`
+## 🎯 Objetivo
 
-## Objetivo
+Compreender na prática como funcionam os métodos HTTP e como utilizá-los na criação de uma API utilizando **NestJS**.
 
-Praticar a criação de uma API REST utilizando NestJS e os métodos HTTP GET, POST, PATCH e DELETE.
+## 👨‍💻 Projeto
+
+Projeto desenvolvido durante o curso de **Programador Full-Stack**, com foco no desenvolvimento Back-End e na criação de APIs REST.
