@@ -1,28 +1,55 @@
-# Aula 08-09 — Métodos HTTP
+# 📚 Aula 08-09 — Métodos GET, POST, PATCH e DELETE
 
-## 📚 Sobre a aula
+## 📌 Sobre o projeto
 
-Nesta aula foi desenvolvido um projeto utilizando **NestJS**, com o objetivo de praticar os principais métodos HTTP utilizados no desenvolvimento de APIs.
+Projeto desenvolvido durante as aulas de **Programação Back-End**, utilizando o framework **NestJS**.
 
-## 🛠️ Tecnologias utilizadas
+Nesta atividade, foram trabalhados os principais métodos HTTP utilizados no desenvolvimento de **APIs REST**, aplicados ao gerenciamento de convidados.
+
+## 🎯 Objetivo
+
+Praticar a criação de uma API utilizando **NestJS**, compreendendo como realizar operações de:
+
+- 🔎 Consulta de dados
+- ➕ Cadastro de dados
+- ✏️ Atualização de dados
+- 🗑️ Exclusão de dados
+
+## ⚙️ Métodos HTTP utilizados
+
+| Método | Função |
+|--------|--------|
+| **GET** | Consultar convidados |
+| **POST** | Cadastrar um novo convidado |
+| **PATCH** | Atualizar os dados de um convidado |
+| **DELETE** | Remover um convidado |
+
+## 🛠️ Tecnologias
 
 - **Node.js**
 - **NestJS**
 - **TypeScript**
 
-## 🚀 O que foi desenvolvido
+## 👥 Gerenciamento de convidados
 
-Durante a aula foram implementadas operações para gerenciamento de convidados utilizando os seguintes métodos:
+A aplicação permite realizar operações sobre os convidados cadastrados, utilizando diferentes métodos HTTP para manipular os dados através da API.
 
-- **GET** — consultar convidados
-- **POST** — cadastrar novos convidados
-- **PATCH** — atualizar dados de convidados
-- **DELETE** — remover convidados
+### Operações realizadas
 
-## 🎯 Objetivo
+**GET** — consulta os convidados cadastrados.
 
-Compreender na prática como funcionam os métodos HTTP e como utilizá-los na criação de uma API utilizando **NestJS**.
+**POST** — adiciona um novo convidado.
 
-## 👨‍💻 Projeto
+**PATCH** — altera informações de um convidado existente.
 
-Projeto desenvolvido durante o curso de **Programador Full-Stack**, com foco no desenvolvimento Back-End e na criação de APIs REST.
+**DELETE** — remove um convidado pelo seu identificador.
+
+## 📖 Aprendizado
+
+Com esta atividade, foi possível compreender melhor o funcionamento das requisições HTTP e colocar em prática a construção de rotas e operações CRUD utilizando o **NestJS**.
+
+---
+
+### 💻 Curso de Programador Full-Stack
+
+**Desenvolvimento Back-End — NestJS**
