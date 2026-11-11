@@ -16,13 +16,46 @@ export class alunosService{
     //!D-DELETE (APAGAR)
 
 async create(createAlunoDto: CreateAlunoDto): Promise<Aluno> {
-    const novoAluno = new this.alunoModel(createAlunoDto);
-    return novoAluno.save();
-}
+  const novoAluno = new this.alunoModel(createAlunoDto);
+  return novoAluno.save();
+ }
     
- async findALL(): Promise <Aluno[]>{
-        return this.alunoModel.find().exec();
+//  async findALL(): Promise <Aluno[]>{
+//         return this.alunoModel.find().exec();
+//     }
+
+//! Método para buscar os alunos com paginação
+async findPage(page: number, limit:number, nome?: string, curso?: string){
+    const skip = (page - 1) * limit;
+    const filter: any = {};
+
+    if(nome){
+        filter.nome = {
+    $regex: nome,
+    $options: 'i',
+};
     }
+
+    if(curso){
+        filter.cursos = curso;
+    }
+
+
+    const [data, total] = await Promise.all([
+        this.alunoModel.find(filter).skip(skip).limit(limit).exec(),
+        this.alunoModel.countDocuments(filter).exec(),
+    ]);
+
+    return {
+        data,
+        meta:{
+            total,
+            page,
+            limit,
+            totalPages: Math.ceil(total / limit),
+        },
+    };
+}
 
     async findOne(id : string): Promise<Aluno>{
         const aluno = await this.alunoModel.findById(id).exec();
