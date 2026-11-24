@@ -1,8 +1,10 @@
+
 import {
     Injectable,
     NotFoundException,
     ConflictException,
     InternalServerErrorException,
+    Inject
 } from "@nestjs/common";
 
 import { InjectModel } from "@nestjs/mongoose";
@@ -12,13 +14,48 @@ import { MongoServerError } from "mongodb";
 import { CreateAlunoDto } from "./dto/create-aluno.dto.js";
 import { UpdateAlunoDto } from "./dto/update-aluno.dto.js";
 import { Aluno, AlunoDoc } from "./dto/schemas/aluno.schemas.js";
+import { ConfigService } from "@nestjs/config";
+import type { ConfigType } from "@nestjs/config";
+import databaseConfig from "../config/database.config.js";
 
 @Injectable()
 export class AlunosService {
     constructor(
         @InjectModel(Aluno.name)
-        private alunoModel: Model<AlunoDoc>,
-    ) {}
+        private readonly alunoModel: Model<AlunoDoc>,
+        private readonly configService: ConfigService,
+        @Inject(databaseConfig.KEY)
+        private readonly dbConfig: ConfigType<typeof databaseConfig>,
+
+    ) {
+        console.log(`Conectado em: ${this.dbConfig.uri}`);
+        console.log(`Pool Máximo: ${this.dbConfig.maxPoolSize}`);
+    }
+
+    configuracoesDeAmbiente() {
+        const nodeEnv = this.configService.get('NODE_ENV', {
+            infer: true,
+        });
+
+        const port = this.configService.get('PORT', {
+            infer: true,
+        });
+
+        const databaseUri = this.configService.get('DATABASE_URI', {
+            infer: true,
+        });
+
+        const jwtSecret = this.configService.get('JWT_SECRET', {
+            infer: true,
+        });
+
+        return {
+            nodeEnv,
+            port,
+            databaseUri,
+            jwtSecret,
+        };
+    }
 
     // CRUD
     // C - CREATE (CRIAR)
@@ -149,22 +186,23 @@ export class AlunosService {
 
     // D - Excluir aluno logicamente (Soft Delete)
     async remove(id: string): Promise<Aluno> {
-    const alunoRemovido = await this.alunoModel
-        .findOneAndUpdate(
-            { _id: id, ativo: true },
-            { $set: { ativo: false } },
-            { new: true }
-        )
-        .exec();
+        const alunoRemovido = await this.alunoModel
+            .findOneAndUpdate(
+                { _id: id, ativo: true },
+                { $set: { ativo: false } },
+                { new: true },
+            )
+            .exec();
 
-    if (!alunoRemovido) {
-        throw new NotFoundException(
-            `Aluno com ID ${id} não encontrado ou já removido.`
-        );
+        if (!alunoRemovido) {
+            throw new NotFoundException(
+                `Aluno com ID ${id} não encontrado ou já removido.`,
+            );
+        }
+
+        return alunoRemovido;
     }
 
-    return alunoRemovido;
-}
     // Restaurar um aluno removido
     async restore(id: string): Promise<Aluno> {
         const alunoRestaurado = await this.alunoModel
